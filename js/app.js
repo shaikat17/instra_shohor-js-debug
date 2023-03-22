@@ -16,7 +16,15 @@ const isLiked = (id) => {
 };
 
 const addToLiked = (id) => {
-    likedPostsId.push(id); 
+    if(likedPostsId.includes(id)) {
+      let likedPostsIdIndex = likedPostsId.indexOf(id);
+
+      console.log(likedPostsIdIndex)
+      likedPostsId.splice(likedPostsIdIndex,1)
+    } else {
+
+      likedPostsId.push(id); 
+    }
     showPosts(posts);
 };
 
